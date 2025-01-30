@@ -6,7 +6,7 @@
 /*   By: mvillavi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 16:47:40 by mvillavi          #+#    #+#             */
-/*   Updated: 2025/01/28 18:56:57 by mvillavi         ###   ########.fr       */
+/*   Updated: 2025/01/30 05:26:18 by mvillavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,17 @@ void	ft_format(char const *s, va_list va, int *count)
 		ft_putchar(va_arg(va, int), count);
 	else if (*s == 's')
 		ft_putstr(va_arg(va, char *), count);
-
-	
+	else if (*s == 'p')
+		printf("Haciendo");//vagina
+	else if (*s == 'd' || *s  == 'i')
+		ft_putnbr_base(va_arg(va, int), "012345677889", count);
+	else if (*s == 'X' || *s  == 'x')
+	{
+		if (*s == 'X')
+			ft_putnbr_base(va_arg(va, int), "0123456789ABCDEF", count);
+		else
+			ft_putnbr_base(va_arg(va, int), "012345677889abcdef", count);
+	}
 }
 
 int	ft_printf(char const *s, ...)
@@ -47,7 +56,8 @@ int	ft_printf(char const *s, ...)
 
 int	main(void)
 {
-	char	*c = "Hola";
-	int	num = ft_printf("%s", c);
-	printf("\n%d", num);
+	int	numdeci = 10;
+	int	numhexa = 65535;
+	int	total = ft_printf("%d, %X", numdeci, numhexa);
+	printf("%d", total);
 }

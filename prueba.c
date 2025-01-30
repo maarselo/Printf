@@ -1,11 +1,11 @@
 #include <stdio.h>
-
-int	main(void)
+/*
+int     main(void)
 {
-	int num = printf("%%\n");
-	printf("%d\n", num);
+        char    *c = "Hola";
+        char    *c1 = " Caca";
+	int     num = printf("%s, %s", c, c1);
+        printf("\n%d", num);
+}*/
 
-	char *str = "hola";
-	int num1 = printf("%s", str);
-	printf("%d", num1);
-}
+
