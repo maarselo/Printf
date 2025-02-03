@@ -22,15 +22,15 @@ void	ft_format(char const *s, va_list va, int *count)
 	else if (*s == 's')
 		ft_putstr(va_arg(va, char *), count);
 	else if (*s == 'p')
-		printf("Haciendo");//vagina
+		printf("Haciendo");//
 	else if (*s == 'd' || *s  == 'i')
-		ft_putnbr_base(va_arg(va, int), "012345677889", count);
+		ft_putnbr_base(va_arg(va, int), "0123456789", 10,  count);
 	else if (*s == 'X' || *s  == 'x')
 	{
 		if (*s == 'X')
-			ft_putnbr_base(va_arg(va, int), "0123456789ABCDEF", count);
+			ft_putnbr_base(va_arg(va, unsigned int), "0123456789ABCDEF", 16, count);
 		else
-			ft_putnbr_base(va_arg(va, int), "012345677889abcdef", count);
+			ft_putnbr_base(va_arg(va, unsigned int), "0123456789abcdef", 16,  count);
 	}
 }
 
@@ -56,8 +56,8 @@ int	ft_printf(char const *s, ...)
 
 int	main(void)
 {
-	int	numdeci = 10;
+	//int	numdeci = -2147483649;
 	int	numhexa = 65535;
-	int	total = ft_printf("%d, %X", numdeci, numhexa);
+	int	total = ft_printf("%d, %X\n", -2147483649, numhexa);
 	printf("%d", total);
 }

@@ -1,11 +1,7 @@
 #include <stdio.h>
-/*
+
 int     main(void)
 {
-        char    *c = "Hola";
-        char    *c1 = " Caca";
-	int     num = printf("%s, %s", c, c1);
-        printf("\n%d", num);
-}*/
-
+	printf("%X\n%x\n%d", 2147483649, -2147483649, 21474826123);
+}
 

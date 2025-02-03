@@ -24,50 +24,44 @@ void	ft_putstr(char *s, int *count)
 		ft_putchar(*s++, count);
 }
 
-size_t	ft_strlen(char *s)
+void	ft_putnbr_base(int num, char *base, int type, int *count)
 {
-	int	i;
-
-	i = 0;
-	while(s[i])
-		i++;
-	return (i);
-}
-
-void	ft_putnbr_base(int num, char *base, int *count)
-{
-	int	index;
-	size_t	len;
-
-	index = 0;
-	len = ft_strlen(base);
-	if (num < 0 && len == 10)
+	if (type == 10 && num < 0)
 	{
-		if (num == -2147483648)//INT_MIN
-		{
-			write(1, "-2147483648", 11);
-			(*count) += 11;
-			return ;
-		}
 		ft_putchar('-', count);
 		num *= -1;
 	}
-	if (len == 10)
+	if (num >= type)
+		ft_putnbr_base(num / type, base, type, count);
+	ft_putchar(base[num % type], count);
+}
+
+/*
+void	ft_putnbr_base(int num, int base, char *hexa, int *count)
+{
+	if (num < 0 && base == 10)
+	{
+		ft_putchar('-', count);
+		num *= -1;
+	}
+	if (base == 10)
 	{
 		if (num > 9)
 		{
-			ft_putnbr_base(num / 10, "0123456789", count);
-			ft_putchar((num / 10) + '0', count);
+			ft_putnbr_base(num / 10, base , NULL, count);
+			ft_putchar((num % 10) + '0', count);
 		}
-		ft_putchar((num / 10) + '0', count);
+		if (num < 10)
+			ft_putchar((num % 10) + '0', count);
 	}
-	if (len == 16)
+	else if (base == 16)
 	{
 		if (num > 15)
 		{
-			ft_putnbr_base(num / 16, "0123456789ABCDEF", count);
-			ft_putchar((num / 16) + '0', count);
+			ft_putnbr_base(hexa[num / 16], base, hexa, count);
+			ft_putchar((num % 16) + '0', count);
 		}
-		ft_putchar((num / 16) + '0', count);
+		if (num < 16)
+			ft_putchar((num % 16) + '0', count);
 	}
-}
+}*/
