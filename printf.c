@@ -58,6 +58,6 @@ int	main(void)
 {
 	//int	numdeci = -2147483649;
 	int	numhexa = 65535;
-	int	total = ft_printf("%d, %X\n", -2147483649, numhexa);
+	int	total = ft_printf("%d, %X\n", -2147483648, numhexa);
 	printf("%d", total);
 }
