@@ -11,11 +11,11 @@
 /* ************************************************************************** */
 
 #ifndef PRINTF_H
-#define PRINTF_H
+# define PRINTF_H
 
-#include <unistd.h>
-#include <stdarg.h>
-#include <stdint.h>
+# include <unistd.h>
+# include <stdarg.h>
+# include <stdint.h>
 
 size_t	ft_strlen(char *s);
 void	ft_putchar(char c, int *count);

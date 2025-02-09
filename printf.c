@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "printf.h"
-#include <stdio.h>
 
 void	ft_format(char const *s, va_list va, int *count)
 {
@@ -21,11 +20,11 @@ void	ft_format(char const *s, va_list va, int *count)
 		ft_putchar(va_arg(va, int), count);
 	else if (*s == 's')
 		ft_putstr(va_arg(va, char *), count);
-	else if (*s == 'd' || *s  == 'i')
+	else if (*s == 'd' || *s == 'i')
 		ft_putnbr_base((long)va_arg(va, int), "0123456789", count);
 	else if (*s == 'u')
 		ft_putnbr_base(va_arg(va, unsigned int), "0123456789", count);
-	else if (*s == 'X' || *s  == 'x')
+	else if (*s == 'X' || *s == 'x')
 	{
 		if (*s == 'X')
 			ft_putnbr_base(va_arg(va, unsigned int), "0123456789ABCDEF", count);
@@ -39,7 +38,7 @@ void	ft_format(char const *s, va_list va, int *count)
 int	ft_printf(char const *s, ...)
 {
 	va_list	va;
-	int	count;	
+	int		count;
 
 	if (!s)
 		return (0);
@@ -55,7 +54,8 @@ int	ft_printf(char const *s, ...)
 	}
 	return (count);
 }
-
+/*
+#include <stdio.h>
 int	main(void)
 {
 	char	*ptr = NULL;
@@ -63,4 +63,4 @@ int	main(void)
 	int	total = ft_printf("%p\n", ptr);
 
 	printf("Original :%p\nTotal chars: %d",ptr, total);
-}
+}*/

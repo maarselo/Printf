@@ -26,10 +26,10 @@ void	ft_putstr(char *s, int *count)
 
 size_t	ft_strlen(char *s)
 {
-	int	i; 
+	int	i;
 
 	i = 0;
-	while(s[i])
+	while (s[i])
 		i++;
 	return (i);
 }
@@ -49,7 +49,7 @@ void	ft_putnbr_base(long num, char *base, int *count)
 	ft_putchar(base[num % base_len], count);
 }
 
-void	ft_putptr(uintptr_t num,int *count)
+void	ft_putptr(uintptr_t num, int *count)
 {
 	if (num == 0)
 	{
