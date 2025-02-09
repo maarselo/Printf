@@ -21,10 +21,10 @@ void	ft_format(char const *s, va_list va, int *count)
 		ft_putchar(va_arg(va, int), count);
 	else if (*s == 's')
 		ft_putstr(va_arg(va, char *), count);
-	else if (*s == 'p')
-		printf("Haciendo");//
 	else if (*s == 'd' || *s  == 'i')
 		ft_putnbr_base((long)va_arg(va, int), "0123456789", count);
+	else if (*s == 'u')
+		ft_putnbr_base(va_arg(va, unsigned int), "0123456789", count);
 	else if (*s == 'X' || *s  == 'x')
 	{
 		if (*s == 'X')
@@ -32,6 +32,8 @@ void	ft_format(char const *s, va_list va, int *count)
 		else
 			ft_putnbr_base(va_arg(va, unsigned int), "0123456789abcdef", count);
 	}
+	else if (*s == 'p')
+		ft_putptr(va_arg(va, uintptr_t), count);
 }
 
 int	ft_printf(char const *s, ...)
@@ -56,8 +58,9 @@ int	ft_printf(char const *s, ...)
 
 int	main(void)
 {
-	//int	numdeci = -2147483649;
-	//int	numhexa = 65535;
-	int	total = ft_printf("%X\n", -21474646366436);
-	printf("%d", total);
+	char	*ptr = NULL;
+
+	int	total = ft_printf("%p\n", ptr);
+
+	printf("Original :%p\nTotal chars: %d",ptr, total);
 }
