@@ -24,16 +24,29 @@ void	ft_putstr(char *s, int *count)
 		ft_putchar(*s++, count);
 }
 
-void	ft_putnbr_base(int num, char *base, int type, int *count)
+size_t	ft_strlen(char *s)
 {
-	if (type == 10 && num < 0)
+	int	i; 
+
+	i = 0;
+	while(s[i])
+		i++;
+	return (i);
+}
+
+void	ft_putnbr_base(long num, char *base, int *count)
+{
+	int	base_len;
+
+	base_len = ft_strlen(base);
+	if (base_len == 10 && num < 0)
 	{
 		ft_putchar('-', count);
 		num *= -1;
 	}
-	if (num >= type)
-		ft_putnbr_base(num / type, base, type, count);
-	ft_putchar(base[num % type], count);
+	if (num >= base_len)
+		ft_putnbr_base(num / base_len, base, count);
+	ft_putchar(base[num % base_len], count);
 }
 
 /*
