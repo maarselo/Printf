@@ -24,13 +24,13 @@ void	ft_format(char const *s, va_list va, int *count)
 	else if (*s == 'p')
 		printf("Haciendo");//
 	else if (*s == 'd' || *s  == 'i')
-		ft_putnbr_base(va_arg(va, int), "0123456789", 10,  count);
+		ft_putnbr_base((long)va_arg(va, int), "0123456789", count);
 	else if (*s == 'X' || *s  == 'x')
 	{
 		if (*s == 'X')
-			ft_putnbr_base(va_arg(va, unsigned int), "0123456789ABCDEF", 16, count);
+			ft_putnbr_base(va_arg(va, unsigned int), "0123456789ABCDEF", count);
 		else
-			ft_putnbr_base(va_arg(va, unsigned int), "0123456789abcdef", 16,  count);
+			ft_putnbr_base(va_arg(va, unsigned int), "0123456789abcdef", count);
 	}
 }
 
@@ -57,7 +57,7 @@ int	ft_printf(char const *s, ...)
 int	main(void)
 {
 	//int	numdeci = -2147483649;
-	int	numhexa = 65535;
-	int	total = ft_printf("%d, %X\n", -2147483648, numhexa);
+	//int	numhexa = 65535;
+	int	total = ft_printf("%X\n", -21474646366436);
 	printf("%d", total);
 }
