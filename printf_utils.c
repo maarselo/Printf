@@ -49,32 +49,13 @@ void	ft_putnbr_base(long num, char *base, int *count)
 	ft_putchar(base[num % base_len], count);
 }
 
-/*
-void	ft_putnbr_base(int num, int base, char *hexa, int *count)
+void	ft_putptr(uintptr_t num,int *count)
 {
-	if (num < 0 && base == 10)
+	if (num == 0)
 	{
-		ft_putchar('-', count);
-		num *= -1;
+		ft_putstr("(nil)", count);
+		return ;
 	}
-	if (base == 10)
-	{
-		if (num > 9)
-		{
-			ft_putnbr_base(num / 10, base , NULL, count);
-			ft_putchar((num % 10) + '0', count);
-		}
-		if (num < 10)
-			ft_putchar((num % 10) + '0', count);
-	}
-	else if (base == 16)
-	{
-		if (num > 15)
-		{
-			ft_putnbr_base(hexa[num / 16], base, hexa, count);
-			ft_putchar((num % 16) + '0', count);
-		}
-		if (num < 16)
-			ft_putchar((num % 16) + '0', count);
-	}
-}*/
+	ft_putstr("0x", count);
+	ft_putnbr_base(num, "0123456789abcdef", count);
+}
