@@ -15,10 +15,10 @@ RM = rm -rf
 
 all: $(NAME)
 
-$(NAME): $(OBJS) $(HEADER) Makefile
+$(NAME): $(OBJS)
 	$(CC_LIB) $(NAME) $(OBJS)
 
-%.o:%.c
+%.o:%.c $(HEADER) Makefile
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
