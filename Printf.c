@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "Printf.h"
 
 void	ft_format(char const *s, va_list va, int *count)
 {
