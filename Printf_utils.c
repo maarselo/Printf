@@ -49,6 +49,16 @@ void	ft_putnbr_base(long num, char *base, int *count)
 	ft_putchar(base[num % base_len], count);
 }
 
+void	ft_putnbr_ulbase(unsigned long num, char *base, int *count)
+{
+	int	base_len;
+
+	base_len = ft_strlen(base);
+	if (num >= (unsigned long)base_len)
+		ft_putnbr_base(num / (unsigned long)base_len, base, count);
+	ft_putchar(base[num % base_len], count);
+}
+
 void	ft_putptr(uintptr_t num, int *count)
 {
 	if (num == 0)
@@ -57,5 +67,5 @@ void	ft_putptr(uintptr_t num, int *count)
 		return ;
 	}
 	ft_putstr("0x", count);
-	ft_putnbr_base(num, "0123456789abcdef", count);
+	ft_putnbr_ulbase(num, "0123456789abcdef", count);
 }
