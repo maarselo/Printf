@@ -54,13 +54,3 @@ int	ft_printf(char const *s, ...)
 	}
 	return (count);
 }
-/*
-#include <stdio.h>
-int	main(void)
-{
-	char	*ptr = NULL;
-
-	int	total = ft_printf("%p\n", ptr);
-
-	printf("Original :%p\nTotal chars: %d",ptr, total);
-}*/
