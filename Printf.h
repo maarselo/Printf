@@ -21,6 +21,9 @@ size_t	ft_strlen(char *s);
 void	ft_putchar(char c, int *count);
 void	ft_putstr(char *s, int *count);
 void	ft_putnbr_base(long num, char *base, int *count);
+void	ft_putnbr_ulbase(unsigned long num, char *base, int *count);
 void	ft_putptr(uintptr_t num, int *count);
 
+int	ft_printf(char const *s, ...);
+void	ft_format(char const *s, va_list va, int *count);
 #endif
