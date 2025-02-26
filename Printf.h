@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf.h                                           :+:      :+:    :+:   */
+/*   Printf.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvillavi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 16:56:16 by mvillavi          #+#    #+#             */
-/*   Updated: 2025/01/30 07:18:35 by mvillavi         ###   ########.fr       */
+/*   Updated: 2025/02/26 18:48:28 by mvillavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,15 @@
 
 # include <unistd.h>
 # include <stdarg.h>
-# include <stdint.h>
 
 size_t	ft_strlen(char *s);
+
 void	ft_putchar(char c, int *count);
 void	ft_putstr(char *s, int *count);
 void	ft_putnbr_base(long num, char *base, int *count);
 void	ft_putnbr_ulbase(unsigned long num, char *base, int *count);
-void	ft_putptr(uintptr_t num, int *count);
+void	ft_putptr(void *num, int *count);
 
-int	ft_printf(char const *s, ...);
+int		ft_printf(char const *s, ...);
 void	ft_format(char const *s, va_list va, int *count);
 #endif
