@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf_utils.c                                     :+:      :+:    :+:   */
+/*   Printf_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvillavi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 17:09:15 by mvillavi          #+#    #+#             */
-/*   Updated: 2025/01/30 07:19:22 by mvillavi         ###   ########.fr       */
+/*   Updated: 2025/02/26 18:09:35 by mvillavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,13 @@ void	ft_putchar(char c, int *count)
 
 void	ft_putstr(char *s, int *count)
 {
+	if (!s)
+	{
+		ft_putstr("(null)", count);
+		return ;
+	}
 	while (*s)
 		ft_putchar(*s++, count);
-}
-
-size_t	ft_strlen(char *s)
-{
-	int	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
 }
 
 void	ft_putnbr_base(long num, char *base, int *count)
@@ -59,13 +54,13 @@ void	ft_putnbr_ulbase(unsigned long num, char *base, int *count)
 	ft_putchar(base[num % base_len], count);
 }
 
-void	ft_putptr(uintptr_t num, int *count)
+void	ft_putptr(void *ptr, int *count)
 {
-	if (num == 0)
+	if (!ptr)
 	{
 		ft_putstr("(nil)", count);
 		return ;
 	}
 	ft_putstr("0x", count);
-	ft_putnbr_ulbase(num, "0123456789abcdef", count);
+	ft_putnbr_ulbase((unsigned long)ptr, "0123456789abcdef", count);
 }
